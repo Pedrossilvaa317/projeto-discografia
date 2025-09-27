@@ -1,11 +1,27 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-<p>{{ mensagem }}</p>
-<form action="{% url 'musica:musica_edit' pk %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-<button type="submit">Salvar</button>
+  <h3>Edição de Música</h3>
+  <hr>
 
-</form>
+  <form action="" method="post">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="{{ form.titulo.id_for_label }}" class="form-label">Título</label>
+        {{ form.titulo }}
+      </div>
+
+      <div class="mb-3">
+        <label for="{{ form.segundos.id_for_label }}" class="form-label">Segundos</label>
+        {{ form.segundos }}
+      </div>
+      
+      <div class="mb-3">
+        <label for="{{ form.album.id_for_label }}" class="form-label">Álbum</label>
+        {{ form.album }}
+      </div>
+
+      <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
 {% endblock %}

@@ -1,11 +1,32 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-<p>{{ mensagem }}</p>
-<form action="{% url 'musica:album_new' %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-<button type="submit">Salvar</button>
+  <h3>Cadastro de Álbum</h3>
+  <hr>
 
-</form>
+  <form action="{% url 'musica:album_new' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="{{ form.titulo.id_for_label }}" class="form-label">Título</label>
+        {{ form.titulo }}
+      </div>
+
+      <div class="mb-3">
+        <label for="{{ form.banda.id_for_label }}" class="form-label">Banda</label>
+        {{ form.banda }}
+      </div>
+      
+      <div class="mb-3">
+        <label for="{{ form.data.id_for_label }}" class="form-label">Data de Lançamento</label>
+        {{ form.data }}
+      </div>
+
+      <div class="mb-3">
+        <label for="{{ form.capa.id_for_label }}" class="form-label">Capa do Álbum</label>
+        {{ form.capa }}
+      </div>
+
+      <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
 {% endblock %}

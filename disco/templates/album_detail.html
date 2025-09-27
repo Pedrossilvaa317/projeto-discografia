@@ -3,6 +3,9 @@
 {% block conteudo %}
 
     <h1>{{ album.titulo }}</h1>
+    {% if album.capa %}
+        <img src="{{ album.capa.url }}" class="img-fluid mb-3" alt="Capa do {{ album.titulo }}">
+    {% endif %}
 
     <hr>
 

@@ -137,3 +137,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'discografia/core/static'),
 ]
+
+# Configuração para ficheiros de media (uploads dos utilizadores)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

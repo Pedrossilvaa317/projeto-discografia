@@ -3,7 +3,7 @@ from .models import Musicas,Albuns,Bandas
 from .forms import MusicaForm, AlbumForm,BandaForm
 
 def musica_list(request):
-    musicas = Musicas.objects.all()
+    musicas = Musicas.objects.filter()
     template_name = 'musica_list.html'
     context = {
         'musicas' : musicas
@@ -67,7 +67,7 @@ def album_list (request):
 
 def album_new (request):
     if request.method == 'POST':
-        form = AlbumForm(request.POST)
+        form = AlbumForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return redirect ('musica:album_list')
@@ -83,7 +83,7 @@ def album_new (request):
 def album_edit (request, pk):
     album = Albuns.objects.get (id = pk)
     if request.method == 'POST':
-        form = AlbumForm (request.POST, instance = album)
+        form = AlbumForm (request.POST, request.FILES,instance = album)
         if form.is_valid():
             form.save()
             return redirect ('musica:album_list')
