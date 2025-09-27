@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discografia</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo">Discografia</h1>
+            <nav>
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'disco:musica_list' %}">Músicas</a>
+                <a href="{% url 'disco:album_list' %}">Álbuns</a>
+                <a href="{% url 'disco:banda_list' %}">Bandas</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content">
+        {% block conteudo %}{% endblock %}
+    </main>
+</body>
+</html>

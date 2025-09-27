@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+    <h1>{{ album.titulo }}</h1>
+
+    <hr>
+
+    <h2>Músicas do Álbum</h2>
+
+    {% if musicas %}
+        <ul>
+            {% for musica in musicas %}
+                <li>
+                    {{  musica.titulo }} - ({{ musica.segundos }} segundos )
+                </li>
+
+            {% empty %}
+                <li>Este álbum ainda não tem músicas registradas.</li>
+        </ul>
+            {% endfor %}
+    {% endif %}
+
+    <br>
+    <a href="{% url 'musica:album_list' %}">Voltar para lista de albuns</a>
+
+{% endblock %} 

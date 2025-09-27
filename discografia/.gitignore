@@ -1,0 +1,14 @@
+# Ficheiros do Python
+__pycache__/
+*.pyc
+
+# Base de dados
+db.sqlite3
+*.sqlite3
+
+# Ficheiros de ambiente virtual (se tiver um)
+venv/
+env/
+
+# Ficheiros de sistema
+.DS_Store

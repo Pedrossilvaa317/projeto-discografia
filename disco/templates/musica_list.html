@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<br>
+<a href="{% url 'musica:musica_new' %}">Novo</a>
+
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Titulo</td>
+        <td>Segundos</td>
+        <td>Artista</td>
+        <td>Album</td>
+        
+    </tr>
+    {% for musica in musicas %}
+    <tr>
+        <td>{{ musica.id }}</td>
+        <td>{{ musica.titulo }}</td>
+        <td>{{ musica.segundos }}</td>
+        <td>{{ musica.album.banda.nome }}</td>
+        <td>{{ musica.album }}</td>
+    
+        <td><a href="{% url 'musica:musica_edit' musica.id %}">Alterar</a></td>
+        <td><a href="{% url 'musica:musica_delete' musica.id %}">Deletar</a></td>
+    </tr>
+    {% endfor %}
+</table>
+   
+{% endblock %}

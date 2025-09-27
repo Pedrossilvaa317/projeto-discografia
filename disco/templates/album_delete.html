@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+  <h3>Você tem a certeza de que quer apagar o álbum "{{ album.titulo }}"?</h3>
+  <p>Esta ação não pode ser desfeita.</p>
+
+  <form action="" method="post">
+      {% csrf_token %}
+      <button type="submit">Sim, apagar</button>
+      <a href="{% url 'musica:album_list' %}">Cancelar</a>
+  </form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+    <h1>{{ banda.nome }}</h1>
+
+    <hr>
+
+    <h2>Álbuns da Banda</h2>
+
+    {% if albuns %}
+        <ul>
+            {% for album in albuns %}
+                <li>
+                    {{  album.titulo }} - (Lançado em: {{ album.data.year }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <br>
+    <a href="{% url 'musica:banda_list' %}">Voltar para lista de bandas</a>
+
+{% endblock %}
